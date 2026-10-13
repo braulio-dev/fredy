@@ -9,6 +9,7 @@ import { formatEuro } from '../../../components/cards/chartTheme.js';
 import { useTranslation, useLocale } from '../../../services/i18n/i18n.jsx';
 
 import './HouseholdHeadline.less';
+import { currencyAffix } from '../../../services/region.js';
 
 /**
  * The two numbers this page cannot do without, and what they immediately buy.
@@ -65,7 +66,7 @@ export default function HouseholdHeadline({ profile, budget, housingBudget, onCh
           label={t('finance.form.primaryIncome')}
           value={profile?.personA?.primaryIncome}
           step={50}
-          prefix="$"
+          {...currencyAffix()}
           help={t('finance.form.primaryIncomeHelp')}
           onChange={(primaryIncome) => onPersonChange({ primaryIncome })}
         />
@@ -73,7 +74,7 @@ export default function HouseholdHeadline({ profile, budget, housingBudget, onCh
           label={t('finance.form.livingCosts')}
           value={profile?.livingCosts}
           step={50}
-          prefix="$"
+          {...currencyAffix()}
           allowEmpty
           help={t('finance.form.livingCostsHelp')}
           onChange={(livingCosts) => onChange({ livingCosts })}

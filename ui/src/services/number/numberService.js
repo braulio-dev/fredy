@@ -8,7 +8,7 @@
  * markup outside React and gets it handed down from the view.
  * @type {string}
  */
-const DEFAULT_LOCALE = 'en-US';
+const DEFAULT_LOCALE = 'de-DE';
 
 /**
  * `Intl.NumberFormat` is expensive to construct and a listings grid formats one figure per card, so

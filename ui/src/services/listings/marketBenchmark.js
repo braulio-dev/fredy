@@ -4,6 +4,7 @@
  */
 
 import { formatEuroPrice } from '../price/priceService.js';
+import { region } from '../region.js';
 
 /**
  * Reading the price per square metre a listing carries, and how it compares to the area.
@@ -141,7 +142,7 @@ export function formatPricePerSqm(value, locale, withUnit = true) {
   const whole = parsed >= WHOLE_EURO_ABOVE;
   const rounded = whole ? Math.round(parsed) : Math.round(parsed * 100) / 100;
   const amount = formatEuroPrice(rounded, locale, whole ? 0 : 2);
-  return withUnit ? `${amount}/sq ft` : amount;
+  return withUnit ? `${amount}/${region.areaUnit}` : amount;
 }
 
 /**

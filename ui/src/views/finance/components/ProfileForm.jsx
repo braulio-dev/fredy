@@ -12,6 +12,7 @@ import AdminField from '../../admin/components/AdminField.jsx';
 import { useTranslation } from '../../../services/i18n/i18n.jsx';
 
 import './FinanceForms.less';
+import { currencyAffix } from '../../../services/region.js';
 
 const { Text } = Typography;
 
@@ -144,7 +145,7 @@ export default function ProfileForm({ profile, onChange }) {
               label={t('finance.form.secondaryIncome')}
               value={profile.personA.secondaryIncome}
               step={50}
-              prefix="$"
+              {...currencyAffix()}
               help={t('finance.form.secondaryIncomeHelp')}
               onChange={(secondaryIncome) => setPerson('personA', { secondaryIncome })}
             />
@@ -177,7 +178,7 @@ export default function ProfileForm({ profile, onChange }) {
                 label={t('finance.form.primaryIncome')}
                 value={profile.personB.primaryIncome}
                 step={50}
-                prefix="$"
+                {...currencyAffix()}
                 help={t('finance.form.primaryIncomeHelp')}
                 onChange={(primaryIncome) => setPerson('personB', { primaryIncome })}
               />
@@ -185,7 +186,7 @@ export default function ProfileForm({ profile, onChange }) {
                 label={t('finance.form.secondaryIncome')}
                 value={profile.personB.secondaryIncome}
                 step={50}
-                prefix="$"
+                {...currencyAffix()}
                 help={t('finance.form.secondaryIncomeHelp')}
                 onChange={(secondaryIncome) => setPerson('personB', { secondaryIncome })}
               />
@@ -204,7 +205,7 @@ export default function ProfileForm({ profile, onChange }) {
             label={t('finance.form.existingDebt')}
             value={profile.existingDebt}
             step={500}
-            prefix="$"
+            {...currencyAffix()}
             help={t('finance.form.existingDebtAmountHelp')}
             onChange={(existingDebt) => onChange({ existingDebt })}
           />
@@ -212,7 +213,7 @@ export default function ProfileForm({ profile, onChange }) {
             label={t('finance.form.existingDebtRate')}
             value={profile.existingDebtRate}
             step={25}
-            prefix="$"
+            {...currencyAffix()}
             help={t('finance.form.existingDebtRateHelp')}
             onChange={(existingDebtRate) => onChange({ existingDebtRate })}
           />

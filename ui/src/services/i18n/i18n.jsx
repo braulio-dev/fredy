@@ -4,6 +4,7 @@
  */
 
 import { createContext, useContext, useMemo } from 'react';
+import { localizeUnits } from '../region.js';
 
 // Auto-discover all locale JSON files at build time
 const localeModules = import.meta.glob('../../locales/*.json', { eager: true });
@@ -35,7 +36,8 @@ for (const [path, module] of Object.entries(localeModules)) {
 
   // Extract _meta and build resources
   const { _meta, ...translations } = localeData;
-  resources[code] = translations;
+  // Fork: euro signs and square metres follow the configured region (see services/region.js).
+  resources[code] = Object.fromEntries(Object.entries(translations).map(([key, value]) => [key, localizeUnits(value)]));
 
   // Build availableLanguages entry
   const flag = _meta?.flag || '';

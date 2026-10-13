@@ -117,7 +117,7 @@ describe('the providers Fredy actually ships', () => {
 
     expect(ranks, `every shipped country needs a rank in COUNTRY_ORDER: ${countries.join(', ')}`).not.toContain(-1);
     expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
-    expect(new Set(countries)).toEqual(new Set(['de', 'at', 'ch', 'es', 'it', 'fr']));
+    expect(new Set(countries)).toEqual(new Set(['de', 'at', 'ch', 'es', 'it', 'fr', 'us'])); // fork: + us
   });
 
   it('lead with ImmoScout24, Immowelt and Kleinanzeigen', async () => {

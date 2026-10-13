@@ -23,7 +23,8 @@
  *
  * @type {string[]}
  */
-export const COUNTRY_ORDER = ['de', 'at', 'ch', 'es', 'it', 'fr', 'pt'];
+// Fork: 'us' and 'mx' appended for the Craigslist/Redfin/Zillow providers.
+export const COUNTRY_ORDER = ['de', 'at', 'ch', 'es', 'it', 'fr', 'pt', 'us', 'mx'];
 
 /**
  * Providers by size within their market, largest first.

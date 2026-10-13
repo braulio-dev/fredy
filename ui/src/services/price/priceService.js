@@ -3,12 +3,13 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
+import { region, withCurrencySymbol } from '../region.js';
 /**
  * Used when no locale is passed. Components have one from `useLocale()`; the map popup builds plain
  * markup outside React and gets it handed down from the view.
  * @type {string}
  */
-const DEFAULT_LOCALE = 'en-US';
+const DEFAULT_LOCALE = 'de-DE';
 
 /**
  * `Intl.NumberFormat` is expensive to construct and a listings grid formats one price per card, so
@@ -28,7 +29,7 @@ function euroFormatter(locale, fractionDigits) {
   if (formatter == null) {
     formatter = new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: 'USD',
+      currency: region.currency,
       minimumFractionDigits: fractionDigits,
       maximumFractionDigits: fractionDigits,
     });
@@ -60,7 +61,7 @@ function euroFormatter(locale, fractionDigits) {
 export const formatEuroPrice = (price, locale = DEFAULT_LOCALE, fractionDigits = null) => {
   const parsedPrice = Number(price);
   if (!Number.isFinite(parsedPrice)) {
-    return `$${price}`;
+    return withCurrencySymbol(price);
   }
 
   const digits = fractionDigits ?? (Number.isInteger(parsedPrice) ? 0 : 2);

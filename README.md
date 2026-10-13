@@ -23,6 +23,22 @@
   <img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Forangecoding%2Ffredy%2Ffredy&query=%24.downloadCount&label=Docker%20Pulls" alt="Docker Pulls" />
 </p>
 
+> **This is a fork** of [orangecoding/fredy](https://github.com/orangecoding/fredy) by Christian Kellner,
+> adding US/Mexico sources. Branch `us-providers` adds:
+>
+> - **Craigslist** (`lib/provider/craigslist.js`) - any city, e.g. `https://sandiego.craigslist.org/search/apa?max_price=3000`
+>   or `https://tijuana.craigslist.org/search/apa`. Every query parameter on the pasted URL is forwarded.
+> - **Redfin** (`lib/provider/redfin.js`) - rentals and homes for sale, from `/city/<id>/…`, `/neighborhood/<id>/…`
+>   or `/county/<id>/…` search URLs, including the `/filter/` segment (price, beds, baths, sqft, property type).
+>   Zip-code URLs are not supported.
+> - **Zillow** (`lib/provider/zillow.js`) - any rentals or for-sale search URL; always fetched newest first.
+> - `FREDY_REGION=us` (Docker build arg and env) shows dollars and square feet instead of euros and m².
+>   Unset keeps upstream's behaviour.
+> - `tools/us/smoke.mjs <provider> <url>` runs one provider live and prints what came back.
+>
+> Apartments.com, HotPads, Zumper, Realtor.com, Inmuebles24, Lamudi and Vivanuncios were tried and block
+> datacenter requests, so they are not included. All credit for Fredy itself goes to the original project.
+
 # Fredy 🏡 - Your Self-Hosted Real Estate Finder for Europe
 
 **Fredy** watches **29 real estate portals** across 🇩🇪 🇦🇹 🇨🇭 🇪🇸 🇮🇹 🇵🇹 🇫🇷 for you (e.g. Immoscout,

@@ -13,6 +13,7 @@ import { BUNDESLAENDER, GRUNDERWERBSTEUER } from '../../../services/finance/cons
 import { useTranslation, useLocale } from '../../../services/i18n/i18n.jsx';
 
 import './FinanceForms.less';
+import { currencyAffix } from '../../../services/region.js';
 
 const { Text } = Typography;
 
@@ -67,7 +68,7 @@ export default function PropertyForm({ financing, costs, totalCost, loanAmount, 
           label={t('finance.form.purchasePrice')}
           value={financing.purchasePrice}
           step={5000}
-          prefix="$"
+          {...currencyAffix()}
           help={t('finance.form.purchasePriceHelp')}
           onChange={(purchasePrice) => onChange({ purchasePrice })}
         />
@@ -75,7 +76,7 @@ export default function PropertyForm({ financing, costs, totalCost, loanAmount, 
           label={t('finance.form.equity')}
           value={financing.equity}
           step={5000}
-          prefix="$"
+          {...currencyAffix()}
           help={t('finance.form.equityHelp')}
           onChange={(equity) => onChange({ equity })}
         />

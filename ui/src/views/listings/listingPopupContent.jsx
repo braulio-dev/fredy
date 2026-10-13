@@ -11,6 +11,7 @@ import { formatEuroPrice } from '../../services/price/priceService.js';
 import { formatDecimal } from '../../services/number/numberService.js';
 import { mountPopupNode } from '../../components/map/popupContent.jsx';
 import MapPopupActions from './components/MapPopupActions.jsx';
+import { region } from '../../services/region.js';
 
 /**
  * Builds the DOM for a listing popup on the map.
@@ -215,7 +216,7 @@ function renderListingBody(listing, index, total, t, locale) {
       <span>${t('map.popupProvider')}</span>
       <span>${escapeHtml(capitalizedProvider)}</span>
       <span>${t('map.popupSize')}</span>
-      <span class="map-popup-content__num">${listing.size != null ? `${escapeHtml(formatDecimal(listing.size, locale))} sq ft` : t('common.na')}</span>
+      <span class="map-popup-content__num">${listing.size != null ? `${escapeHtml(formatDecimal(listing.size, locale))} ${region.areaUnit}` : t('common.na')}</span>
     </div>
     ${renderTravelTimes(listing, t)}
     <div class="map-popup-content__actions"></div>`;

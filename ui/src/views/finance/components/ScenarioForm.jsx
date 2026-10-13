@@ -13,6 +13,7 @@ import { DEFAULT_TILGUNG, DEFAULT_ZINSBINDUNG_YEARS } from '../../../services/fi
 import { useTranslation } from '../../../services/i18n/i18n.jsx';
 
 import './FinanceForms.less';
+import { currencyAffix } from '../../../services/region.js';
 
 /** Nobody needs more lines on one chart than the palette has colours. */
 const MAX_SCENARIOS = 6;
@@ -124,7 +125,7 @@ export default function ScenarioForm({ scenarios, computed = [], onChange }) {
               label={t('finance.form.monthlyPayment')}
               value={Math.round(scenario.monthlyPayment ?? computed[index]?.monthlyPayment ?? 0)}
               step={50}
-              prefix="$"
+              {...currencyAffix()}
               help={t('finance.form.monthlyPaymentHelp')}
               onChange={(monthlyPayment) => setPayment(index, monthlyPayment)}
             />
@@ -132,7 +133,7 @@ export default function ScenarioForm({ scenarios, computed = [], onChange }) {
               label={t('finance.form.sondertilgung')}
               value={scenario.sondertilgungPerYear ?? 0}
               step={500}
-              prefix="$"
+              {...currencyAffix()}
               help={t('finance.form.sondertilgungHelp')}
               onChange={(sondertilgungPerYear) => update(index, { sondertilgungPerYear })}
             />

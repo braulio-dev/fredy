@@ -7,6 +7,7 @@ import { formatEuroPrice } from '../../../services/price/priceService.js';
 import { formatPricePerSqm } from '../../../services/listings/marketBenchmark.js';
 import { formatDecimal } from '../../../services/number/numberService.js';
 import { relativeTime } from '../../../services/time/relativeTime.js';
+import { region } from '../../../services/region.js';
 
 /** The thumbnail a listing without a usable photo falls back to. Drawn, not imported: one icon
  *  does not earn an asset, and an inline path follows the theme through currentColor. */
@@ -39,7 +40,7 @@ const THUMB_PLACEHOLDER = (
 function metaLine(row, locale, t) {
   return [
     row.address,
-    row.size == null ? null : `${formatDecimal(row.size, locale)} sq ft`,
+    row.size == null ? null : `${formatDecimal(row.size, locale)} ${region.areaUnit}`,
     row.rooms == null ? null : t('listing.detail.fieldRoomsValue', { count: formatDecimal(row.rooms, locale) }),
   ]
     .filter(Boolean)

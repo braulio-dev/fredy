@@ -33,6 +33,7 @@ import {
   PLACEHOLDER_GROUPS,
 } from '../../../services/application/placeholderCatalog.js';
 import './ApplicationPage.less';
+import { currencyAffix } from '../../../services/region.js';
 
 const { Text, Paragraph } = Typography;
 
@@ -406,7 +407,7 @@ export default function ApplicationPage() {
             min={0}
             step={100}
             prefix={t('settings.application.netIncome')}
-            prefix="$"
+            {...currencyAffix()}
             style={{ width: '100%' }}
           />
         </div>

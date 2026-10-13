@@ -18,6 +18,7 @@ import {
 } from 'chart.js';
 
 import { formatEuroPrice } from '../../services/price/priceService.js';
+import { region } from '../../services/region.js';
 
 /*
  * Chart colours and typography, read from the theme rather than copied out of it.
@@ -201,7 +202,7 @@ export function formatEuroCompact(value, locale = 'de-DE') {
   }
   return new Intl.NumberFormat(locale, {
     style: 'currency',
-    currency: 'USD',
+    currency: region.currency,
     notation: 'compact',
     maximumFractionDigits: 1,
   }).format(Number(value));

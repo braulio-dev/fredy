@@ -21,6 +21,18 @@ const configOf = (id) => providers.find((provider) => provider.metaInformation.i
  * says, and a portal that renames one should fail here rather than quietly report no band.
  */
 const RECORDED_SEARCHES = [
+  // Fork providers.
+  ['craigslist', 'https://sandiego.craigslist.org/search/apa?min_price=1500&max_price=3000', { min: 1500, max: 3000 }],
+  [
+    'redfin',
+    'https://www.redfin.com/city/16904/CA/San-Diego/apartments-for-rent/filter/min-price=1.5k,max-price=3k',
+    { min: 1500, max: 3000 },
+  ],
+  [
+    'zillow',
+    'https://www.zillow.com/san-diego-ca/rentals/?searchQueryState=%7B%22filterState%22%3A%7B%22mp%22%3A%7B%22min%22%3A1500%2C%22max%22%3A3000%7D%7D%7D',
+    { min: 1500, max: 3000 },
+  ],
   [
     'deutscheWohnen',
     'https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung&priceMin=500&priceMax=1000&minRooms=Beliebig&balcony=egal',

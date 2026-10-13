@@ -58,6 +58,12 @@ COPY public ./public
 COPY ui ./ui
 COPY lib ./lib
 
+# Fork: currency and area unit (de = euros/m², upstream default; us = dollars/sq ft). The UI bakes it
+# in at build time, the backend reads FREDY_REGION at runtime.
+ARG FREDY_REGION=de
+ENV FREDY_REGION=${FREDY_REGION} \
+    VITE_FREDY_REGION=${FREDY_REGION}
+
 RUN yarn build:frontend
 
 COPY index.js ./

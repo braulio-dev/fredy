@@ -8,6 +8,7 @@ import { formatDecimal } from '../../services/number/numberService.js';
 import { formatPricePerSqm, readMarketBenchmark } from '../../services/listings/marketBenchmark.js';
 import { rentIncludesCharges, verdictExplanation } from '../../services/finance/rentBasis.js';
 import * as timeService from '../../services/time/timeService.js';
+import { region } from '../../services/region.js';
 
 /**
  * The two readings of a listing, kept apart.
@@ -83,7 +84,7 @@ export function buildObjectFacts(listing, ctx) {
     {
       id: 'size',
       label: t('listing.detail.fieldSize'),
-      value: row.size ? `${formatDecimal(row.size, locale)} sq ft` : null,
+      value: row.size ? `${formatDecimal(row.size, locale)} ${region.areaUnit}` : null,
       helpText: t('listing.detail.fieldSizeHelp'),
     },
     {
@@ -141,7 +142,7 @@ function splitPrice(value, locale, fallback) {
   try {
     const parts = new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: 'USD',
+      currency: region.currency,
       maximumFractionDigits: 0,
     }).formatToParts(value);
 
