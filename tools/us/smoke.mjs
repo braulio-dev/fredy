@@ -21,6 +21,9 @@ console.log(`${id}: ${raw.length} raw, ${listings.length} kept in ${Date.now() -
 const missing = {};
 for (const l of listings) for (const f of cfg.requiredFieldNames) if (l[f] == null) missing[f] = (missing[f] || 0) + 1;
 console.log('missing fields:', JSON.stringify(missing));
+const prices = listings.map((l) => l.price).filter((p) => p != null);
+const rooms = listings.map((l) => l.rooms).filter((r) => r != null);
+console.log(`price ${Math.min(...prices)}..${Math.max(...prices)}  beds ${Math.min(...rooms)}..${Math.max(...rooms)}`);
 for (const l of listings.slice(0, 4)) {
   console.log(JSON.stringify(flag === '--raw' ? l : { ...l, description: l.description?.slice(0, 80) }));
 }
