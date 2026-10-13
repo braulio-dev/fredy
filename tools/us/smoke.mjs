@@ -3,6 +3,8 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
+/* eslint-disable no-console */
+
 // Live smoke test for the fork's US/MX providers. Usage:
 //   node tools/us/smoke.mjs <providerId> <searchUrl> [--raw]
 // Prints how many listings came back and the first few normalised ones.
