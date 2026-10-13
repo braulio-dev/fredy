@@ -91,7 +91,9 @@
   },
   "idealista": {
     "url": "https://www.idealista.it/affitto-case/roma-roma/",
-    "otherSiteUrls": ["https://www.idealista.com/alquiler-viviendas/madrid-madrid/"],
+    "otherSiteUrls": [
+      "https://www.idealista.com/alquiler-viviendas/madrid-madrid/"
+    ],
     "enabled": true
   },
   "casa": {
@@ -117,6 +119,18 @@
   },
   "bienici": {
     "url": "https://www.bienici.com/recherche/location/paris-75000/appartement",
+    "enabled": true
+  },
+  "craigslist": {
+    "url": "https://sandiego.craigslist.org/search/apa?max_price=3500&min_bedrooms=1",
+    "enabled": true
+  },
+  "redfin": {
+    "url": "https://www.redfin.com/city/16904/CA/San-Diego/apartments-for-rent/filter/max-price=3k,min-beds=1",
+    "enabled": true
+  },
+  "zillow": {
+    "url": "https://www.zillow.com/san-diego-ca/rentals/",
     "enabled": true
   }
 }

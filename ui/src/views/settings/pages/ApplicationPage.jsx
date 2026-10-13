@@ -406,7 +406,7 @@ export default function ApplicationPage() {
             min={0}
             step={100}
             prefix={t('settings.application.netIncome')}
-            suffix="€"
+            prefix="$"
             style={{ width: '100%' }}
           />
         </div>

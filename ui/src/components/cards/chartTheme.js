@@ -201,7 +201,7 @@ export function formatEuroCompact(value, locale = 'de-DE') {
   }
   return new Intl.NumberFormat(locale, {
     style: 'currency',
-    currency: 'EUR',
+    currency: 'USD',
     notation: 'compact',
     maximumFractionDigits: 1,
   }).format(Number(value));

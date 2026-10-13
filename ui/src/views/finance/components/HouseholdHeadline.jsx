@@ -65,7 +65,7 @@ export default function HouseholdHeadline({ profile, budget, housingBudget, onCh
           label={t('finance.form.primaryIncome')}
           value={profile?.personA?.primaryIncome}
           step={50}
-          suffix="€"
+          prefix="$"
           help={t('finance.form.primaryIncomeHelp')}
           onChange={(primaryIncome) => onPersonChange({ primaryIncome })}
         />
@@ -73,7 +73,7 @@ export default function HouseholdHeadline({ profile, budget, housingBudget, onCh
           label={t('finance.form.livingCosts')}
           value={profile?.livingCosts}
           step={50}
-          suffix="€"
+          prefix="$"
           allowEmpty
           help={t('finance.form.livingCostsHelp')}
           onChange={(livingCosts) => onChange({ livingCosts })}

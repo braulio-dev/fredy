@@ -39,7 +39,7 @@ const THUMB_PLACEHOLDER = (
 function metaLine(row, locale, t) {
   return [
     row.address,
-    row.size == null ? null : `${formatDecimal(row.size, locale)} m²`,
+    row.size == null ? null : `${formatDecimal(row.size, locale)} sq ft`,
     row.rooms == null ? null : t('listing.detail.fieldRoomsValue', { count: formatDecimal(row.rooms, locale) }),
   ]
     .filter(Boolean)

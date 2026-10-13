@@ -67,7 +67,7 @@ export default function PropertyForm({ financing, costs, totalCost, loanAmount, 
           label={t('finance.form.purchasePrice')}
           value={financing.purchasePrice}
           step={5000}
-          suffix="€"
+          prefix="$"
           help={t('finance.form.purchasePriceHelp')}
           onChange={(purchasePrice) => onChange({ purchasePrice })}
         />
@@ -75,7 +75,7 @@ export default function PropertyForm({ financing, costs, totalCost, loanAmount, 
           label={t('finance.form.equity')}
           value={financing.equity}
           step={5000}
-          suffix="€"
+          prefix="$"
           help={t('finance.form.equityHelp')}
           onChange={(equity) => onChange({ equity })}
         />

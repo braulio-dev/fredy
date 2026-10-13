@@ -124,7 +124,7 @@ export default function ScenarioForm({ scenarios, computed = [], onChange }) {
               label={t('finance.form.monthlyPayment')}
               value={Math.round(scenario.monthlyPayment ?? computed[index]?.monthlyPayment ?? 0)}
               step={50}
-              suffix="€"
+              prefix="$"
               help={t('finance.form.monthlyPaymentHelp')}
               onChange={(monthlyPayment) => setPayment(index, monthlyPayment)}
             />
@@ -132,7 +132,7 @@ export default function ScenarioForm({ scenarios, computed = [], onChange }) {
               label={t('finance.form.sondertilgung')}
               value={scenario.sondertilgungPerYear ?? 0}
               step={500}
-              suffix="€"
+              prefix="$"
               help={t('finance.form.sondertilgungHelp')}
               onChange={(sondertilgungPerYear) => update(index, { sondertilgungPerYear })}
             />

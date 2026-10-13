@@ -61,6 +61,11 @@ export const COUNTRY_BOUNDS = {
     [5.73, 49.44],
     [6.54, 50.19],
   ],
+  // Fork additions. Contiguous US only; Mexico mainland plus Baja.
+  mx: [
+    [-118.4, 14.53],
+    [-86.7, 32.72],
+  ],
   nl: [
     [3.35, 50.75],
     [7.23, 53.56],
@@ -72,6 +77,10 @@ export const COUNTRY_BOUNDS = {
   pt: [
     [-9.56, 36.95],
     [-6.18, 42.16],
+  ],
+  us: [
+    [-124.85, 24.4],
+    [-66.88, 49.39],
   ],
 };
 

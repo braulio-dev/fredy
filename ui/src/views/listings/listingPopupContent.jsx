@@ -215,7 +215,7 @@ function renderListingBody(listing, index, total, t, locale) {
       <span>${t('map.popupProvider')}</span>
       <span>${escapeHtml(capitalizedProvider)}</span>
       <span>${t('map.popupSize')}</span>
-      <span class="map-popup-content__num">${listing.size != null ? `${escapeHtml(formatDecimal(listing.size, locale))} m²` : t('common.na')}</span>
+      <span class="map-popup-content__num">${listing.size != null ? `${escapeHtml(formatDecimal(listing.size, locale))} sq ft` : t('common.na')}</span>
     </div>
     ${renderTravelTimes(listing, t)}
     <div class="map-popup-content__actions"></div>`;

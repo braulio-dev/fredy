@@ -83,7 +83,7 @@ export function buildObjectFacts(listing, ctx) {
     {
       id: 'size',
       label: t('listing.detail.fieldSize'),
-      value: row.size ? `${formatDecimal(row.size, locale)} m²` : null,
+      value: row.size ? `${formatDecimal(row.size, locale)} sq ft` : null,
       helpText: t('listing.detail.fieldSizeHelp'),
     },
     {
@@ -141,7 +141,7 @@ function splitPrice(value, locale, fallback) {
   try {
     const parts = new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: 'EUR',
+      currency: 'USD',
       maximumFractionDigits: 0,
     }).formatToParts(value);
 

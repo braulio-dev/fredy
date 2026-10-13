@@ -8,7 +8,7 @@
  * markup outside React and gets it handed down from the view.
  * @type {string}
  */
-const DEFAULT_LOCALE = 'de-DE';
+const DEFAULT_LOCALE = 'en-US';
 
 /**
  * `Intl.NumberFormat` is expensive to construct and a listings grid formats one price per card, so
@@ -28,7 +28,7 @@ function euroFormatter(locale, fractionDigits) {
   if (formatter == null) {
     formatter = new Intl.NumberFormat(locale, {
       style: 'currency',
-      currency: 'EUR',
+      currency: 'USD',
       minimumFractionDigits: fractionDigits,
       maximumFractionDigits: fractionDigits,
     });
@@ -60,7 +60,7 @@ function euroFormatter(locale, fractionDigits) {
 export const formatEuroPrice = (price, locale = DEFAULT_LOCALE, fractionDigits = null) => {
   const parsedPrice = Number(price);
   if (!Number.isFinite(parsedPrice)) {
-    return `${price} €`;
+    return `$${price}`;
   }
 
   const digits = fractionDigits ?? (Number.isInteger(parsedPrice) ? 0 : 2);

@@ -141,7 +141,7 @@ export function formatPricePerSqm(value, locale, withUnit = true) {
   const whole = parsed >= WHOLE_EURO_ABOVE;
   const rounded = whole ? Math.round(parsed) : Math.round(parsed * 100) / 100;
   const amount = formatEuroPrice(rounded, locale, whole ? 0 : 2);
-  return withUnit ? `${amount}/m²` : amount;
+  return withUnit ? `${amount}/sq ft` : amount;
 }
 
 /**
